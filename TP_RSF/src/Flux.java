@@ -7,8 +7,9 @@ public class Flux {
 	}
 	
 	public static void createFlux() {
-		int[] p = Paquet.createPacket("flux1");
-		System.out.println(p);
+		Paquet p = new Paquet();
+		p = Paquet.createPacket("flux1");
+		System.out.println(p.toString());
 	}
 
 	public static void main(String[] args) {
