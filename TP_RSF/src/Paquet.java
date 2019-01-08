@@ -15,6 +15,7 @@ public class Paquet {
 		
 	}
 	
+	
 	public static Paquet createPacket(String fluxname) {
 		Paquet p = new Paquet();
 		p.taillepacket = TAILLEPACKET;
