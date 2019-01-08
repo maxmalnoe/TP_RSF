@@ -25,6 +25,34 @@ public class Paquet {
 						tab[i]=1;
 					}
 				}
+				break;
+				
+			case ("flux2") :
+				DELAY=50;
+				for(int i=0; i<TAILLEPACKET;i++) {
+					if(Math.random()< 0.5) {
+						tab[i]=0;
+					}
+					else {
+						tab[i]=1;
+					}
+				}
+				break;
+				
+			case ("flux3") :
+				DELAY=100;
+				for(int i=0; i<TAILLEPACKET;i++) {
+					if(Math.random()< 0.5) {
+						tab[i]=0;
+					}
+					else {
+						tab[i]=1;
+					}
+				}
+				break;
+			
+			default: System.out.println("Non valide"); break;
+				
 		}
 		return tab;
 	}
