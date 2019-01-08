@@ -1,6 +1,6 @@
 
 public class Utilisateur {
-
+	//en attente
 	protected int TAILLEPACKET = 0;
 	
 	
