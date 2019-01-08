@@ -2,51 +2,54 @@
 public class Paquet {
 	//paquet qui transite de la source à la destination, avec contraintes et taille différentes, délai à respecter pour chaque paquet
 	//paquet issu d'un flux particulier (audio, videao, stream)	
-	protected int TAILLEPACKET = 100;
-	protected int DELAY = 0;
-	protected int DATA [];
+	static int taillepacket;
+	static int delay;
+	static int data [];
 	
 	public Paquet() {
 		// TODO Auto-generated constructor stub
-		
+		taillepacket = 100;
+		delay=0;
+		data = new int[taillepacket];
 		
 	}
 	
-	public int [] createPacket(String fluxname) {
-		int tab []= new int [TAILLEPACKET];
+	public static Paquet createPacket(String fluxname) {
+		Paquet p = new Paquet();
+		p.taillepacket = taillepacket;
 		switch(fluxname) {
 			case ("flux1") :
-				DELAY=25;
-				for(int i=0; i<TAILLEPACKET;i++) {
+				p.delay=25;
+				for(int i=0; i<p.taillepacket;i++) {
 					if(Math.random()< 0.5) {
-						tab[i]=0;
+						p.data[i]=0;
 					}
 					else {
-						tab[i]=1;
+						p.data[i]=1;
 					}
 				}
 				break;
 				
 			case ("flux2") :
-				DELAY=50;
-				for(int i=0; i<TAILLEPACKET;i++) {
+				p.delay=50;
+				for(int i=0; i<taillepacket;i++) {
 					if(Math.random()< 0.5) {
-						tab[i]=0;
+						p.data[i]=0;
 					}
 					else {
-						tab[i]=1;
+						p.data[i]=1;
 					}
 				}
 				break;
 				
 			case ("flux3") :
-				DELAY=100;
-				for(int i=0; i<TAILLEPACKET;i++) {
+				p.delay=100;
+				for(int i=0; i<taillepacket;i++) {
 					if(Math.random()< 0.5) {
-						tab[i]=0;
+						p.data[i]=0;
 					}
 					else {
-						tab[i]=1;
+						p.data[i]=1;
 					}
 				}
 				break;
@@ -54,7 +57,7 @@ public class Paquet {
 			default: System.out.println("Non valide"); break;
 				
 		}
-		return tab;
+		return p;
 	}
 
 }
