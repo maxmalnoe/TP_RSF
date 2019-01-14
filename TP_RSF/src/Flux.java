@@ -7,7 +7,7 @@ public class Flux {
 	}
 	
 	public static void createFlux() {
-		int[] p = dsPaquet.createPacket("flux1");
+		int[] p = Paquet.createPacket("flux1");
 		System.out.println(p);
 	}
 
