@@ -2,15 +2,15 @@
 public class Paquet {
 	//paquet qui transite de la source à la destination, avec contraintes et taille différentes, délai à respecter pour chaque paquet
 	//paquet issu d'un flux particulier (audio, videao, stream)	
-	 protected int taillepacket;
+	 protected static int taillepacket;
 	 protected int delay;
 	 protected int data [];
 	
 	public Paquet() {
 		// TODO Auto-generated constructor stub
-		int taillepacket = 100;
-		int delay=0;
-		int [] data = new int[taillepacket];
+		taillepacket = 100;
+		delay=0;
+		data = new int[taillepacket];
 		
 	}
 	
@@ -20,7 +20,7 @@ public class Paquet {
 		switch(fluxname) {
 			case ("flux1") :
 				p.delay=25;
-				for(int i=0; i<p.taillepacket;i++) {
+				for(int i=0; i<taillepacket;i++) {
 					if(Math.random()< 0.5) {
 						p.data[i]=0;
 					}
@@ -32,7 +32,7 @@ public class Paquet {
 				
 			case ("flux2") :
 				p.delay=50;
-				for(int i=0; i<p.taillepacket;i++) {
+				for(int i=0; i<taillepacket;i++) {
 					if(Math.random()< 0.5) {
 						p.data[i]=0;
 					}
@@ -44,7 +44,7 @@ public class Paquet {
 				
 			case ("flux3") :
 				p.delay=100;
-				for(int i=0; i<p.taillepacket;i++) {
+				for(int i=0; i<taillepacket;i++) {
 					if(Math.random()< 0.5) {
 						p.data[i]=0;
 					}

@@ -9,7 +9,9 @@ public class Flux {
 	public static void createFlux() {
 		Paquet p = new Paquet();
 		p = Paquet.createPacket("flux1");
-		System.out.println("le paquet :"+p.data);
+		for(int i =0; i<p.taillepacket;i++) {
+			System.out.println("le paquet à l'indice "+ i + " : " +p.data[i]);
+		}
 	}
 
 	public static void main(String[] args) {
