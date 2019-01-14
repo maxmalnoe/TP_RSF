@@ -8,9 +8,9 @@ public class Paquet {
 	
 	public Paquet() {
 		// TODO Auto-generated constructor stub
-		taillepacket = 100;
-		delay=0;
-		data = new int[taillepacket];
+		this.taillepacket = 100;
+		this.delay=0; // crainte de temps a respecter
+		this.data = new int[taillepacket];
 		
 	}
 	
