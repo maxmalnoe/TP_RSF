@@ -6,7 +6,7 @@ public class Paquet {
 	 protected int delay;
 	 protected int data [];
 	 protected int id;
-	 protected int createTime;
+	 protected long createTime;
 	
 	public Paquet() {
 		// TODO Auto-generated constructor stub
