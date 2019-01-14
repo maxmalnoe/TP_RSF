@@ -5,12 +5,16 @@ public class Paquet {
 	 protected static int taillepacket;
 	 protected int delay;
 	 protected int data [];
+	 protected int id;
+	 protected int createTime;
 	
 	public Paquet() {
 		// TODO Auto-generated constructor stub
 		this.taillepacket = 100;
 		this.delay=0; // crainte de temps a respecter
 		this.data = new int[taillepacket];
+		this.id=0;
+		this.createTime=0;
 		
 	}
 	
