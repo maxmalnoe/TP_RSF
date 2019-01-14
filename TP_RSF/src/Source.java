@@ -7,13 +7,13 @@ public class Source {
 	
 	public Source() {
 		// TODO Auto-generated constructor stub
-		this.listAttente = new ArrayBlockingQueue<Paquet>(20);
 		
 	}
 	
 	public static void fillListAttente() {
-
+		listAttente = new ArrayBlockingQueue<Paquet>(20);
 		for(int i =0; i<10;i++) {
+			
 			Paquet p = new Paquet();
 			p = Paquet.createPacket("flux1");
 			p.id=i;
@@ -33,12 +33,16 @@ public class Source {
 			
 		
 		Paquet p = listAttente.poll();
-		System.out.println(p.id+p.createTime+p.taillepacket);
+		System.out.println("ID: "+p.id+", Date de création du paquet: "+p.createTime+"; Taille du paquet: "+p.taillepacket);
+		Paquet p1 = listAttente.poll();
+		System.out.println("ID: "+p1.id+", Date de création du paquet: "+p1.createTime+"; Taille du paquet: "+p1.taillepacket);
 		}
+		
 	}
 	
 	public static void main(String[] args) {
 		fillListAttente();
+		consumeListAttente();
 	}
 
 }
