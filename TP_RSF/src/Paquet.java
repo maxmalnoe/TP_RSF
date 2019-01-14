@@ -54,7 +54,7 @@ public class Paquet {
 				}
 				break;
 			
-			default: System.out.println("Non valide"); break;
+			default: System.out.println("Non valide");break;
 				
 		}
 		return p;
