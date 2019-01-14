@@ -9,7 +9,7 @@ public class Flux {
 	public static void createFlux() {
 		Paquet p = new Paquet();
 		p = Paquet.createPacket("flux1");
-		System.out.println(p.toString());
+		System.out.println("le paquet :"+p.data);
 	}
 
 	public static void main(String[] args) {
