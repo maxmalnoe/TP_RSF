@@ -18,7 +18,11 @@ public class Source {
 			p = Paquet.createPacket("flux1");
 			p.id=i;
 			p.createTime=System.currentTimeMillis();
+			try {
 			listAttente.add(p);
+			}catch (NullPointerException e) {
+				System.out.print("NullPointerException caught");
+			}
 		}
 		System.out.println(listAttente);
 		
