@@ -26,25 +26,15 @@ public class Flux {
 	public static void traiterFlux() {
 		if(!Source.listAttente.isEmpty()) {
 			Paquet copiePaquet = Source.listAttente.poll();
-			if(copiePaquet.delay <= 25) {
-				//go lien 1
+			Liens l;
 
-			}
-			else if(copiePaquet.delay >25 && copiePaquet.delay <= 50) {//TODO à revoir pour améliorer les conditions
-					//go lien 2
-			}
+			l=Liens.cheminPaquet(copiePaquet.delay);
 
-			else if(copiePaquet.delay >50 && copiePaquet.delay <= 100) {
-					//go lien 3
-			}
-			
-			else {
-				//pas possible
-			}
+
 		}
 	}
 
-	public static void main(String[] args) {
-		createFlux();
+		public static void main(String[] args) {
+			createFlux();
+		}
 	}
-}
