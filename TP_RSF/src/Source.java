@@ -12,11 +12,12 @@ public class Source {
 	
 	public static void fillListAttente() {
 		listAttente = new ArrayBlockingQueue<Paquet>(20);
-		for(int i =0; i<10;i++) {
+		int i=0;
+		while(listAttente.size()<20) {
 			
 			Paquet p = new Paquet();
 			p = Paquet.createPacket("flux1");
-			p.id=i;
+			p.id=i+1;
 			p.createTime=System.currentTimeMillis();
 			try {
 			listAttente.add(p);
@@ -31,16 +32,16 @@ public class Source {
 	public static void consumeListAttente() {
 		if(!listAttente.isEmpty()) {
 			
-		
+		for (int i =0;i<20;i++) {
 		Paquet p = listAttente.poll();
 		System.out.println("ID: "+p.id+", Date de création du paquet: "+p.createTime+"; Taille du paquet: "+p.taillepacket);
-		Paquet p1 = listAttente.poll();
-		System.out.println("ID: "+p1.id+", Date de création du paquet: "+p1.createTime+"; Taille du paquet: "+p1.taillepacket);
+		}
 		}
 		
 	}
 	
 	public static void main(String[] args) {
+		
 		fillListAttente();
 		consumeListAttente();
 	}
