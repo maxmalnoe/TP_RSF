@@ -1,28 +1,30 @@
+import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 
 public class Source {
 	//recout des flux que la source achemine sur la topologie jusqu'a la destination
 	protected static Queue<Paquet> listAttente;
-	protected static int id;
+
 
 	public Source() {
 		// TODO Auto-generated constructor stub
 
 	}
 
-	public static void fillListAttente() {		
-		Paquet p = new Paquet();
-		p = Paquet.createPacket("flux1");
-		p.id=id+1;
-		p.createTime=System.currentTimeMillis();
-		try {
-			listAttente.add(p);
-		}catch (NullPointerException e) {
-			System.out.print("NullPointerException caught");
+	public static void fillListAttente(List<Paquet> lp) {		
+		for (Paquet p : lp) {
+			try {if(listAttente.size()<20) {
+
+				listAttente.add(p);
+			}
+			}catch (NullPointerException e) {
+				System.out.print("NullPointerException caught");
+			}
+
+			System.out.println(listAttente);
 		}
 
-		System.out.println(listAttente);
 
 	}
 
@@ -37,14 +39,14 @@ public class Source {
 
 	}
 
-	public static void main(String[] args) {
-		listAttente = new ArrayBlockingQueue<Paquet>(20);
-		id=0;
-		while(listAttente.size()<20) {
-			fillListAttente();
-			id++;
-		}
-		consumeListAttente();
-	}
+	//	public static void main(String[] args) {
+	//		listAttente = new ArrayBlockingQueue<Paquet>(20);
+	//		id=0;
+	//		while(listAttente.size()<20) {
+	//			fillListAttente();
+	//			id++;
+	//		}
+	//		consumeListAttente();
+	//	}
 
 }

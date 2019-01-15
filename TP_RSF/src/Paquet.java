@@ -7,6 +7,7 @@ public class Paquet {
 	 protected int data [];
 	 protected int id;
 	 protected long createTime;
+	 protected static int cptid=0;
 	
 	public Paquet() {
 		// TODO Auto-generated constructor stub
@@ -31,6 +32,9 @@ public class Paquet {
 					else {
 						p.data[i]=1;
 					}
+					p.id=cptid+1;
+					p.createTime=System.currentTimeMillis();
+					cptid++;
 				}
 				break;
 				
@@ -43,6 +47,9 @@ public class Paquet {
 					else {
 						p.data[i]=1;
 					}
+					p.id=cptid+1;
+					p.createTime=System.currentTimeMillis();
+					cptid++;
 				}
 				break;
 				
@@ -55,6 +62,9 @@ public class Paquet {
 					else {
 						p.data[i]=1;
 					}
+					p.id=cptid+1;
+					p.createTime=System.currentTimeMillis();
+					cptid++;
 				}
 				break;
 			

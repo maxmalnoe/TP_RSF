@@ -7,45 +7,51 @@ public class Flux {
 	//exemple: flux audio de 5 paquets de taille 10 avec un délai de 25ms
 
 	protected static int cpt1, cpt2, cpt3=0;
+	protected static int id;
 
 	public Flux() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public static void createFlux() {
-		Paquet p = new Paquet();
-		p = Paquet.createPacket("flux1");
+	public static List<Paquet> createFlux() {
+		
 		List <Paquet> packetList = new ArrayList<>();
-		packetList.add(p);
-		for(int j=0; j<packetList.size();j++) {
-
-			System.out.println(packetList.get(j));
+		for (int i=0; i<15;i++) {
+			Paquet p = new Paquet();
+			p = Paquet.createPacket("flux1");
+			packetList.add(p);
+//			for(int j=0; j<packetList.size();j++) {
+//
+//				System.out.println(packetList.get(j));
+//			}
+			/*//Affichage paquet
+			for(int i =0; i<p.taillepacket;i++) {
+				System.out.println("le paquet à l'indice "+ i + " : " +p.data[i]);
+			}*/
 		}
-		/*//Affichage paquet
-		for(int i =0; i<p.taillepacket;i++) {
-			System.out.println("le paquet à l'indice "+ i + " : " +p.data[i]);
-		}*/
+
+		return packetList;
 	}
-		public static void traiterFlux() {
+	public static void traiterFlux() {
 
-			if(!Source.listAttente.isEmpty()) {
-				Paquet copiePaquet = Source.listAttente.poll();
-				Liens l;
+		if(!Source.listAttente.isEmpty()) {
+			Paquet copiePaquet = Source.listAttente.poll();
+			Liens l;
 
-				l=Liens.cheminPaquet(copiePaquet.delay);
-				if(l.name == "LIEN1") {
-					cpt1++;
-				}
-				if(l.name == "LIEN2") {
-					cpt2++;
-				}
-				if(l.name == "LIEN3") {
-					cpt3++;
-				}
+			l=Liens.cheminPaquet(copiePaquet.delay);
+			if(l.name == "LIEN1") {
+				cpt1++;
+			}
+			if(l.name == "LIEN2") {
+				cpt2++;
+			}
+			if(l.name == "LIEN3") {
+				cpt3++;
 			}
 		}
-		public static void main(String[] args) {
-			createFlux();
-			System.out.println("liens: " + Liens.LIEN1);
-		}
 	}
+	public static void main(String[] args) {
+		createFlux();
+		System.out.println("liens: " + Liens.LIEN1);
+	}
+}
