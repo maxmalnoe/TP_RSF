@@ -6,7 +6,7 @@ public class Flux {
 	//exemple: flux audio de 5 paquets de taille 10 avec un délai de 25ms
 	//exemple: flux audio de 5 paquets de taille 10 avec un délai de 25ms
 
-	protected static int cpt1, cpt2, cpt3=0;
+	protected static int cpt1=0, cpt2=0, cpt3=0;
 	protected static int id=0;
 
 	public Flux() {
@@ -16,7 +16,7 @@ public class Flux {
 	public static List<Paquet> createFlux() {
 		
 		List <Paquet> packetList = new ArrayList<>();
-		for (int i=0; i<15;i++) {
+		for (int i=0; i<20;i++) {
 			Paquet p = new Paquet();
 			p = Paquet.createPacket("flux1");
 			packetList.add(p);
