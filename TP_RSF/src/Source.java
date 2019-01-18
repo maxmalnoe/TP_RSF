@@ -35,6 +35,14 @@ public class Source {
 		/*for(int i=0; i<lp1.size()+lp2.size()+lp3.size();i++) {
 			if(Math.random()< 0.33) {
 				lp.add(lp1.get(i));
+=======
+	public static void consumeListAttente() {
+		while(!listAttente.isEmpty()) {
+
+			for (int i =0;i<20;i++) {
+				Paquet p = listAttente.poll();
+				System.out.println("ID: "+p.id+", Date de création du paquet: "+p.createTime+"; Taille du paquet: "+p.taillepacket);
+>>>>>>> branch 'master' of https://github.com/maxmalnoe/TP_RSF.git
 			}
 			else if(Math.random()<0.66&&Math.random()>0.33){
 				lp=lp2;
