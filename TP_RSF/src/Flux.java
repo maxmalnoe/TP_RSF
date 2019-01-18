@@ -13,12 +13,11 @@ public class Flux {
 		// TODO Auto-generated constructor stub
 	}
 
-	public static List<Paquet> createFlux() {
+	public static List<Paquet> createFlux(String flux) {
 		
 		List <Paquet> packetList = new ArrayList<>();
-		for (int i=0; i<15;i++) {
-			Paquet p = new Paquet();
-			p = Paquet.createPacket("flux1");
+		for (int i=0; i<20;i++) {
+			Paquet p = Paquet.createPacket(flux);
 			packetList.add(p);
 //			for(int j=0; j<packetList.size();j++) {
 //
@@ -35,6 +34,7 @@ public class Flux {
 	public static void traiterFlux() {
 
 		if(!Source.listAttente.isEmpty()) {
+			for(int i =0; i<Source.listAttente.size();i++) {
 			Paquet copiePaquet = Source.listAttente.poll();
 			Liens l;
 
@@ -48,10 +48,12 @@ public class Flux {
 			if(l.name == "LIEN3") {
 				cpt3++;
 			}
+			Source.listAttente.add(copiePaquet);
+			}
 		}
 	}
 	public static void main(String[] args) {
-		createFlux();
+		createFlux("flux1");
 		System.out.println("liens: " + Liens.LIEN1);
 	}
 }
