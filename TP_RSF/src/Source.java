@@ -31,7 +31,7 @@ public class Source {
 	public static void consumeListAttente() {
 		if(!listAttente.isEmpty()) {
 
-			for (int i =0;i<20;i++) {
+			for (int i =0;i<19;i++) {
 				Paquet p = listAttente.poll();
 				System.out.println("ID: "+p.id+", Date de création du paquet: "+p.createTime+"; Taille du paquet: "+p.taillepacket);
 			}

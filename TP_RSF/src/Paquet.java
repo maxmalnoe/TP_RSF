@@ -32,10 +32,11 @@ public class Paquet {
 					else {
 						p.data[i]=1;
 					}
-					p.id=cptid+1;
-					p.createTime=System.currentTimeMillis();
-					cptid++;
+					
 				}
+				p.id=cptid+1;
+				p.createTime=System.currentTimeMillis();
+				cptid++;
 				break;
 				
 			case ("flux2") :
@@ -47,10 +48,11 @@ public class Paquet {
 					else {
 						p.data[i]=1;
 					}
-					p.id=cptid+1;
-					p.createTime=System.currentTimeMillis();
-					cptid++;
+					
 				}
+				p.id=cptid+1;
+				p.createTime=System.currentTimeMillis();
+				cptid++;
 				break;
 				
 			case ("flux3") :
@@ -62,10 +64,10 @@ public class Paquet {
 					else {
 						p.data[i]=1;
 					}
-					p.id=cptid+1;
-					p.createTime=System.currentTimeMillis();
-					cptid++;
 				}
+				p.id=cptid+1;
+				p.createTime=System.currentTimeMillis();
+				cptid++;
 				break;
 			
 			default: System.out.println("Non valide");break;

@@ -7,7 +7,7 @@ public class Flux {
 	//exemple: flux audio de 5 paquets de taille 10 avec un délai de 25ms
 
 	protected static int cpt1, cpt2, cpt3=0;
-	protected static int id;
+	protected static int id=0;
 
 	public Flux() {
 		// TODO Auto-generated constructor stub
