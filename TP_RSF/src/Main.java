@@ -19,9 +19,9 @@ public class Main {
 			Source.fillListAttente(Source.chooseList(listp1, listp2, listp3));
 		}
 		Flux.traiterFlux();
-		System.out.println(Flux.cpt1);
-		System.out.println(Flux.cpt2);
-		System.out.println(Flux.cpt3);
+		System.out.println(Liens.LIEN1+": "+Flux.cpt1);
+		System.out.println(Liens.LIEN2+": "+Flux.cpt2);
+		System.out.println(Liens.LIEN3+": "+Flux.cpt3);
 		Destination.consumeListAttente();
 	}
 
