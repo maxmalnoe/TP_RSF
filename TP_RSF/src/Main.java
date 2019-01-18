@@ -11,6 +11,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		Source.listAttente = new ArrayBlockingQueue<Paquet>(20);
 		List<Paquet> listp = Flux.createFlux();
+		//youhou
 		
 		
 		while(Source.listAttente.size()<20) {
