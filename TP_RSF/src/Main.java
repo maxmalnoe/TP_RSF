@@ -32,14 +32,17 @@ public class Main {
 			if(p.delay==25 ) {
 				Router.consumeListAttenteR(qsource,r1.q);
 				System.out.println("Paquet traitee routeur 1");
+				System.out.println("----------");
 			}
 			else if(p.delay==50) {
 				Router.consumeListAttenteR(qsource,r2.q);
 				System.out.println("Paquet traitee routeur 2");
+				System.out.println("----------");
 			}
 			else if(p.delay==100) {
 				Router.consumeListAttenteR(qsource,r3.q);
 				System.out.println("Paquet traitee routeur 3");
+				System.out.println("----------");
 			}
 		}
 		System.out.println(Liens.LIEN1+": "+Flux.cpt1);
