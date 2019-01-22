@@ -20,7 +20,7 @@ public class Csv {
 
 	public static void main(String[] args) throws IOException {
 		FileWriter fileWriter = remplissagecsv();
-		System.out.println(fileWriter);
+		System.out.println("Remplissage ok: " + fileWriter);
 
 
 	}
