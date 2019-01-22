@@ -11,7 +11,7 @@ public class Destination {
 		long da=0;
 		while(!q1.isEmpty()) {
 
-			for (int i =0;i<20;i++) {
+			for (int i =0;i<q1.size();i++) {
 				Paquet p = q1.poll();
 				dd=p.createTime;
 				da=System.currentTimeMillis();
@@ -23,7 +23,7 @@ public class Destination {
 		}
 		while(!q2.isEmpty()) {
 
-			for (int i =0;i<20;i++) {
+			for (int i =0;i<q2.size();i++) {
 				Paquet p = q2.poll();
 				dd=p.createTime;
 				da=System.currentTimeMillis();
@@ -35,7 +35,7 @@ public class Destination {
 		}
 		while(!q3.isEmpty()) {
 
-			for (int i =0;i<20;i++) {
+			for (int i =0;i<q3.size();i++) {
 				Paquet p = q3.poll();
 				dd=p.createTime;
 				da=System.currentTimeMillis();

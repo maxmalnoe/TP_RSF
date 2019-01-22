@@ -21,22 +21,22 @@ public class Main {
 		
 		
 		while(qsource.size()<20) {
-			Source.fillListAttente(qsource,listp1);//Source.chooseList(listp1, listp2, listp3));
+			Source.fillListAttente(qsource,Source.chooseList(listp1, listp2, listp3));
 		}
 		Flux.traiterFlux(qsource);
 		while(!qsource.isEmpty()) {
 			Paquet p =qsource.peek();
 			if(p.delay==25) {
-				Router.consumeListAttenteR(qR1);
-				System.out.println("youhou1");
+				Router.consumeListAttenteR(qsource,qR1);
+				System.out.println("Paquet traitee routeur 1");
 			}
-			if(p.delay==50) {
-				Router.consumeListAttenteR(qR2);
-				System.out.println("youhou2");
+			else if(p.delay==50) {
+				Router.consumeListAttenteR(qsource,qR2);
+				System.out.println("Paquet traitee routeur 2");
 			}
-			if(p.delay==100) {
-				Router.consumeListAttenteR(qR3);
-				System.out.println("youhou3");
+			else if(p.delay==100) {
+				Router.consumeListAttenteR(qsource,qR3);
+				System.out.println("Paquet traitee routeur 3");
 			}
 		}
 		System.out.println(Liens.LIEN1+": "+Flux.cpt1);
