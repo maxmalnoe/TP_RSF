@@ -4,18 +4,18 @@ import java.util.concurrent.ArrayBlockingQueue;
 public class Router {
 	//noeuds de la topologie, avec file d'attente, vitesse de traitement
 	
-	protected Integer vitesseTraitement;
-	protected static String name;
+	//protected Integer vitesseTraitement;
 	protected static boolean congestion;
+	protected Queue<Paquet> q;
 	
 	
 	public Router() {
 		// TODO Auto-generated constructor stub
-		String name="";
 		boolean congestion=false;
+		Queue<Paquet> q = new ArrayBlockingQueue<Paquet>(20);
 	}
 	
-	public static Queue<Paquet> consumeListAttenteR(Queue<Paquet> lA,Queue<Paquet>lr) { 
+	public static void consumeListAttenteR(Queue<Paquet> lA,Queue<Paquet>lr) { 
 		long dd=0;
 		long da=0;
 		//while(!lA.isEmpty()) {
@@ -31,7 +31,6 @@ public class Router {
 			//}
 			
 		//}
-		return lr;
 		
 
 	}

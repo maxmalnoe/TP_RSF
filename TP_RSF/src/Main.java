@@ -12,9 +12,12 @@ public class Main {
 		// TODO Auto-generated method stub
 		//Source.listAttente = new ArrayBlockingQueue<Paquet>(20);
 		Queue<Paquet> qsource = new ArrayBlockingQueue<Paquet>(20);
-		Queue<Paquet> qR1 = new ArrayBlockingQueue<Paquet>(20);
-		Queue<Paquet> qR2 = new ArrayBlockingQueue<Paquet>(20);
-		Queue<Paquet> qR3 = new ArrayBlockingQueue<Paquet>(20);
+		//Queue<Paquet> qR1 = new ArrayBlockingQueue<Paquet>(20);
+		//Queue<Paquet> qR2 = new ArrayBlockingQueue<Paquet>(20);
+		//Queue<Paquet> qR3 = new ArrayBlockingQueue<Paquet>(20);
+		Router r1 = new Router();
+		Router r2 = new Router();
+		Router r3 = new Router();
 		List<Paquet> listp1 = Flux.createFlux("flux1");
 		List<Paquet> listp2 = Flux.createFlux("flux2");
 		List<Paquet> listp3 = Flux.createFlux("flux3");
@@ -26,23 +29,23 @@ public class Main {
 		Flux.traiterFlux(qsource);
 		while(!qsource.isEmpty()) {
 			Paquet p =qsource.peek();
-			if(p.delay==25) {
-				Router.consumeListAttenteR(qsource,qR1);
+			if(p.delay==25 ) {
+				Router.consumeListAttenteR(qsource,r1.q);
 				System.out.println("Paquet traitee routeur 1");
 			}
 			else if(p.delay==50) {
-				Router.consumeListAttenteR(qsource,qR2);
+				Router.consumeListAttenteR(qsource,r2.q);
 				System.out.println("Paquet traitee routeur 2");
 			}
 			else if(p.delay==100) {
-				Router.consumeListAttenteR(qsource,qR3);
+				Router.consumeListAttenteR(qsource,r3.q);
 				System.out.println("Paquet traitee routeur 3");
 			}
 		}
 		System.out.println(Liens.LIEN1+": "+Flux.cpt1);
 		System.out.println(Liens.LIEN2+": "+Flux.cpt2);
 		System.out.println(Liens.LIEN3+": "+Flux.cpt3);
-		Destination.consumeListAttente(qR1,qR2,qR3);
+		Destination.consumeListAttente(r1.q,r2.q,r3.q);
 	}
 
 }
