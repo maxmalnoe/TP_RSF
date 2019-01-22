@@ -60,7 +60,7 @@ public class Source {
 		for(int i=0; i<lp3.size();i++) {
 			lp.add(lp3.get(i));
 		}
-		Collections.shuffle(lp);
+		//Collections.shuffle(lp);
 		return lp;
 		
 	}

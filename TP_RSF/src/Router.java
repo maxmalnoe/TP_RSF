@@ -6,11 +6,13 @@ public class Router {
 	
 	protected Integer vitesseTraitement;
 	protected static String name;
+	protected static boolean congestion;
 	
 	
 	public Router() {
 		// TODO Auto-generated constructor stub
 		String name="";
+		boolean congestion=false;
 	}
 	
 	public static Queue<Paquet> consumeListAttenteR(Queue<Paquet> lA) {
