@@ -9,8 +9,8 @@ public class Liens {
 	
 	public Liens() {
 		// TODO Auto-generated constructor stub
-		String name="";
-		int value =0;
+		 name="";
+		 value =0;
 		
 	}
 	

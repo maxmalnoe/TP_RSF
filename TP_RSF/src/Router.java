@@ -11,8 +11,8 @@ public class Router {
 	
 	public Router() {
 		// TODO Auto-generated constructor stub
-		boolean congestion=false;
-		Queue<Paquet> q = new ArrayBlockingQueue<Paquet>(20);
+		congestion=false;
+		q = new ArrayBlockingQueue<Paquet>(20);
 	}
 	
 	public static void consumeListAttenteR(Queue<Paquet> lA,Queue<Paquet>lr) { 
