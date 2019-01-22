@@ -1,14 +1,16 @@
 import java.io.FileWriter;
 import java.io.IOException;
 
+
 public class Csv {
 
 
 	public static FileWriter remplissagecsv() throws IOException {
 		FileWriter fileWriter = new FileWriter("Resultats.csv");
-		for(int i=0; i<10;i++) {
+		
+		for(int i=0; i<10;i++) {//colonne
 			fileWriter.write("blabla");
-			for(int j=0; j<10;j++) {
+			for(int j=0; j<10;j++) {//ligne
 				fileWriter.write(',');
 				fileWriter.write("test" + j);
 			}
