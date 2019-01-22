@@ -1,3 +1,4 @@
+import java.util.Queue;
 
 public class Destination {
 	//traite les paquets recu de la topologie et les traites/supprimes
@@ -5,13 +6,13 @@ public class Destination {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public static void consumeListAttente() {
+	public static void consumeListAttente(Queue<Paquet> lA) {
 		long dd=0;
 		long da=0;
-		while(!Source.listAttente.isEmpty()) {
+		while(!lA.isEmpty()) {
 
 			for (int i =0;i<20;i++) {
-				Paquet p = Source.listAttente.poll();
+				Paquet p = lA.poll();
 				dd=p.createTime;
 				da=System.currentTimeMillis();
 				System.out.println("ID: "+p.id+", Date de création du paquet: "+p.createTime+", Date arrivée du paquet: " +da);

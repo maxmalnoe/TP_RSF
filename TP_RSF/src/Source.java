@@ -15,16 +15,16 @@ public class Source {
 
 	}
 
-	public static void fillListAttente(List<Paquet> lp) {
+	public static void fillListAttente(Queue<Paquet> q, List<Paquet> lp) {
 		for (Paquet p : lp) {
-			try {if(listAttente.size()<20) {
-				listAttente.add(p);
+			try {if(q.size()<20) {
+				q.add(p);
 			}
 			}catch (NullPointerException e) {
 				System.out.print("NullPointerException caught");
 			}
 
-			System.out.println(listAttente);
+			System.out.println(q);
 		}
 
 

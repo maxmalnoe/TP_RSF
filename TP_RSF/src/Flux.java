@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 
 public class Flux {
 	//flux audio ou video ou autres contenant un certain nombre de paquets avec des délai et des priorité
@@ -32,11 +33,11 @@ public class Flux {
 
 		return packetList;
 	}
-	public static void traiterFlux() {
+	public static void traiterFlux(Queue<Paquet>q) {
 
-		if(!Source.listAttente.isEmpty()) {
-			for(int i =0; i<Source.listAttente.size();i++) {
-			Paquet copiePaquet = Source.listAttente.poll();
+		if(!q.isEmpty()) {
+			for(int i =0; i<q.size();i++) {
+			Paquet copiePaquet = q.poll();
 			Liens l;
 
 			l=Liens.cheminPaquet(copiePaquet.delay);
@@ -49,7 +50,7 @@ public class Flux {
 			if(l.name == "LIEN3") {
 				cpt3++;
 			}
-			Source.listAttente.add(copiePaquet);
+			q.add(copiePaquet);
 			}
 		}
 	}
