@@ -11,7 +11,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//Source.listAttente = new ArrayBlockingQueue<Paquet>(20);
-		Queue<Paquet> qsource = new ArrayBlockingQueue<Paquet>(60);
+		Queue<Paquet> qsource = new ArrayBlockingQueue<Paquet>(20);
 		Queue<Paquet> qR1 = new ArrayBlockingQueue<Paquet>(20);
 		Queue<Paquet> qR2 = new ArrayBlockingQueue<Paquet>(20);
 		Queue<Paquet> qR3 = new ArrayBlockingQueue<Paquet>(20);
@@ -20,8 +20,8 @@ public class Main {
 		List<Paquet> listp3 = Flux.createFlux("flux3");
 		
 		
-		while(qsource.size()<60) {
-			Source.fillListAttente(qsource,Source.chooseList(listp1, listp2, listp3));
+		while(qsource.size()<20) {
+			Source.fillListAttente(qsource,listp1);//Source.chooseList(listp1, listp2, listp3));
 		}
 		Flux.traiterFlux(qsource);
 		while(!qsource.isEmpty()) {
