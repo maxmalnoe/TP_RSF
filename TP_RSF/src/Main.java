@@ -29,7 +29,7 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		//Source.listAttente = new ArrayBlockingQueue<Paquet>(20);
-		Queue<Paquet> qsource = new ArrayBlockingQueue<Paquet>(20);
+		Queue<Paquet> qsource = new ArrayBlockingQueue<Paquet>(40);
 		//Queue<Paquet> qR1 = new ArrayBlockingQueue<Paquet>(20);
 		//Queue<Paquet> qR2 = new ArrayBlockingQueue<Paquet>(20);
 		//Queue<Paquet> qR3 = new ArrayBlockingQueue<Paquet>(20);
@@ -39,23 +39,26 @@ public class Main {
 		List<Paquet> listp1 = Flux.createFlux("flux1");
 		List<Paquet> listp2 = Flux.createFlux("flux2");
 		List<Paquet> listp3 = Flux.createFlux("flux3");
+	
 		
 		
+
 		while(qsource.size()<10) {
 			Source.fillListAttente(qsource,Source.chooseList(listp1, listp2, listp3));
+
 		}
 		Flux.traiterFlux(qsource);
 		while(!qsource.isEmpty()) {
 			Paquet p =qsource.peek();
 
 			
-			if(p.delay==25 ) {
+			if(p.delay==25  ) {
 				Router.consumeListAttenteR(qsource,r1.q);
 				System.out.println("Paquet traitee routeur 1");
 				//System.out.println("Remplissage ok: " + fileWriter);
 				System.out.println("----------");
 			}
-			else if(p.delay==50) {
+			else if(p.delay==50 || p.delay==25) {
 				Router.consumeListAttenteR(qsource,r2.q);
 				System.out.println("Paquet traitee routeur 2");
 				//System.out.println("Remplissage ok: " + fileWriter);
@@ -67,9 +70,15 @@ public class Main {
 				//System.out.println("Remplissage ok: " + fileWriter);
 				System.out.println("----------");
 			}
-			//CSV
-			FileWriter fileWriter = remplissagecsv(p);
-			System.out.println("remplissage ok");
+		
+			//FileWriter fileWriter = remplissagecsv(p);
+			//System.out.println("remplissage ok" + fileWriter);
+			
+			/*Router.consumeListAttenteR(qsource,r1.q);
+			System.out.println("Paquet traitee routeur 1");
+			//System.out.println("Remplissage ok: " + fileWriter);
+			System.out.println("----------");*/
+
 		}
 		System.out.println(Liens.LIEN1+": "+Flux.cpt1);
 		System.out.println(Liens.LIEN2+": "+Flux.cpt2);

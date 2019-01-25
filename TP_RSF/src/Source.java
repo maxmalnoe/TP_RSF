@@ -17,7 +17,9 @@ public class Source {
 
 	public static void fillListAttente(Queue<Paquet> q, List<Paquet> lp) {
 		for (Paquet p : lp) {
-			try {if(q.size()<10) {
+
+			try {if(q.size()<40) {
+
 				q.add(p);
 			}
 			}catch (NullPointerException e) {
@@ -60,6 +62,7 @@ public class Source {
 		for(int i=0; i<lp3.size();i++) {
 			lp.add(lp3.get(i));
 		}
+	
 		Collections.shuffle(lp);
 		return lp;
 		
