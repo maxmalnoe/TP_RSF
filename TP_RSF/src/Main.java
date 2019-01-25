@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -7,8 +9,24 @@ public class Main {
 	public Main() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public static FileWriter remplissagecsv(Paquet p) throws IOException {
+		FileWriter fileWriter = new FileWriter("Resultats.csv");
+		
+		for(int i=0; i<10;i++) {//colonne
+			fileWriter.write(p.id);
+			for(int j=0; j<10;j++) {//ligne
+				fileWriter.write(',');
+				fileWriter.write("test" + j);
+			}
+			fileWriter.write('\n');
+		}
+		fileWriter.close();
+		return fileWriter;
+	}
 
-	public static void main(String[] args) {
+
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		//Source.listAttente = new ArrayBlockingQueue<Paquet>(20);
 		Queue<Paquet> qsource = new ArrayBlockingQueue<Paquet>(20);
@@ -29,19 +47,25 @@ public class Main {
 		Flux.traiterFlux(qsource);
 		while(!qsource.isEmpty()) {
 			Paquet p =qsource.peek();
+
+			//CSV
+			//FileWriter fileWriter = remplissagecsv(p);
 			if(p.delay==25 ) {
 				Router.consumeListAttenteR(qsource,r1.q);
 				System.out.println("Paquet traitee routeur 1");
+				//System.out.println("Remplissage ok: " + fileWriter);
 				System.out.println("----------");
 			}
 			else if(p.delay==50) {
 				Router.consumeListAttenteR(qsource,r2.q);
 				System.out.println("Paquet traitee routeur 2");
+				//System.out.println("Remplissage ok: " + fileWriter);
 				System.out.println("----------");
 			}
 			else if(p.delay==100) {
 				Router.consumeListAttenteR(qsource,r3.q);
 				System.out.println("Paquet traitee routeur 3");
+				//System.out.println("Remplissage ok: " + fileWriter);
 				System.out.println("----------");
 			}
 		}
@@ -49,6 +73,7 @@ public class Main {
 		System.out.println(Liens.LIEN2+": "+Flux.cpt2);
 		System.out.println(Liens.LIEN3+": "+Flux.cpt3);
 		Destination.consumeListAttente(r1.q,r2.q,r3.q);
+		
 	}
 
 }
