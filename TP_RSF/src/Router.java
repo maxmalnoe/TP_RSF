@@ -12,7 +12,7 @@ public class Router {
 	public Router() {
 		// TODO Auto-generated constructor stub
 		congestion=false;
-		q = new ArrayBlockingQueue<Paquet>(20);
+		q = new ArrayBlockingQueue<Paquet>(100);
 	}
 	
 	public static void consumeListAttenteR(Queue<Paquet> lA,Queue<Paquet>lr) { 

@@ -17,7 +17,7 @@ public class Source {
 
 	public static void fillListAttente(Queue<Paquet> q, List<Paquet> lp) {
 		for (Paquet p : lp) {
-			try {if(q.size()<20) {
+			try {if(q.size()<40) {
 				q.add(p);
 			}
 			}catch (NullPointerException e) {
@@ -30,7 +30,7 @@ public class Source {
 
 	}
 
-	public static List<Paquet> chooseList(List<Paquet> lp1,List<Paquet> lp2,List<Paquet> lp3){
+	public static List<Paquet> chooseList(List<Paquet> lp1,List<Paquet> lp2,List<Paquet> lp3,List<Paquet> lp4,List<Paquet> lp5){
 		List<Paquet>lp= new ArrayList<>();
 		/*for(int i=0; i<lp1.size()+lp2.size()+lp3.size();i++) {
 			if(Math.random()< 0.33) {
@@ -59,6 +59,12 @@ public class Source {
 		}
 		for(int i=0; i<lp3.size();i++) {
 			lp.add(lp3.get(i));
+		}
+		for(int i=0; i<lp4.size();i++) {
+			lp.add(lp4.get(i));
+		}
+		for(int i=0; i<lp5.size();i++) {
+			lp.add(lp5.get(i));
 		}
 		Collections.shuffle(lp);
 		return lp;
