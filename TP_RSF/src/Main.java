@@ -41,7 +41,7 @@ public class Main {
 		List<Paquet> listp3 = Flux.createFlux("flux3");
 		
 		
-		while(qsource.size()<20) {
+		while(qsource.size()<10) {
 			Source.fillListAttente(qsource,Source.chooseList(listp1, listp2, listp3));
 		}
 		Flux.traiterFlux(qsource);
@@ -69,7 +69,7 @@ public class Main {
 			}
 			//CSV
 			FileWriter fileWriter = remplissagecsv(p);
-			System.out.println("remplissage ok" + fileWriter);
+			System.out.println("remplissage ok");
 		}
 		System.out.println(Liens.LIEN1+": "+Flux.cpt1);
 		System.out.println(Liens.LIEN2+": "+Flux.cpt2);

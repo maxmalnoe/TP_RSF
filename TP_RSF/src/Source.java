@@ -17,7 +17,7 @@ public class Source {
 
 	public static void fillListAttente(Queue<Paquet> q, List<Paquet> lp) {
 		for (Paquet p : lp) {
-			try {if(q.size()<20) {
+			try {if(q.size()<10) {
 				q.add(p);
 			}
 			}catch (NullPointerException e) {
