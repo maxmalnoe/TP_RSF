@@ -17,7 +17,7 @@ public class Main {
 			fileWriter.write(p.id);
 			for(int j=0; j<10;j++) {//ligne
 				fileWriter.write(',');
-				fileWriter.write("test" + j);
+				fileWriter.write(p.delay);
 			}
 			fileWriter.write('\n');
 		}
@@ -48,8 +48,7 @@ public class Main {
 		while(!qsource.isEmpty()) {
 			Paquet p =qsource.peek();
 
-			//CSV
-			//FileWriter fileWriter = remplissagecsv(p);
+			
 			if(p.delay==25 ) {
 				Router.consumeListAttenteR(qsource,r1.q);
 				System.out.println("Paquet traitee routeur 1");
@@ -68,6 +67,9 @@ public class Main {
 				//System.out.println("Remplissage ok: " + fileWriter);
 				System.out.println("----------");
 			}
+			//CSV
+			FileWriter fileWriter = remplissagecsv(p);
+			System.out.println("remplissage ok" + fileWriter);
 		}
 		System.out.println(Liens.LIEN1+": "+Flux.cpt1);
 		System.out.println(Liens.LIEN2+": "+Flux.cpt2);
